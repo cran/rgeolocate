@@ -1,0 +1,35 @@
+Version 0.4.1
+-------------------------------------------------------------------------
+* Bug when asking maxmind for connection information now accidentally fixed;
+* Internal refactor by Drew Schmidt to maxmind-related C++.
+
+Version 0.4.0
+-------------------------------------------------------------------------
+
+NEW FEATURES
+*rgeolocate now works on Windows thanks to the work of Drew Schmidt.
+
+DEVELOPMENT
+*libmaxminddb is now included, making the code self-contained.
+*Unit tests are fixed to avoid unintended external dependencies.
+
+Version 0.3.0
+-------------------------------------------------------------------------
+NEW FEATURES
+* maxmind() is now variable - you can pass in single fields, or various permutations of fields, rather
+than having it geolocate everything all at once.
+
+
+Version 0.2.0
+-------------------------------------------------------------------------
+
+NEW FEATURES
+*Support for freegeoip.net
+*Support for telize.com
+
+DEVELOPMENT
+*add extern "C" to make the package more easily installable.
+
+Version 0.1.0
+-------------------------------------------------------------------------
+Initial release. Support for MaxMind's binary databases, db-ip.com and ip-api.com
