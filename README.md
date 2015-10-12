@@ -4,6 +4,8 @@ __Author(s:__ Oliver Keyes, Drew Schmidt<br/>
 __License:__ Apache 2.0
 __Status:__ Stable
 
+[![Travis-CI Build Status](https://travis-ci.org/Ironholds/rgeolocate.svg?branch=master)](https://travis-ci.org/Ironholds/rgeolocate)
+
 IP geolocation is a powerful tool to have if you're dealing with web data, and there are a couple of R packages that
 provide access to specific services, such as the legacy rgeoip package
 or Bob Rudis's [ipapi](https://github.com/hrbrmstr/ipapi). They're all spread about and have diffing interfaces,
@@ -28,9 +30,8 @@ For the latest CRAN release:
 
 For the development version:
 
-    devtools::install_github("ironholds/rgeolocate")
+    devtools::install_github("ironholds/rgeolocate", ref = "0.5.0")
     
-
 ### Dependencies
 `rgeolocate` depends on [httr](http://cran.r-project.org/web/packages/httr/index.html) for the bindings
 to web databases; other than that, just base R! Thanks to the work of Drew Schmidt, `rgeolocate` includes the underlying
