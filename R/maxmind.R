@@ -14,6 +14,7 @@
 #'  \item{country_code}{: the ISO code of the country. Requires a country or city database.}
 #'  \item{region_name}{: the English-language name of the region. Requires a city database.}
 #'  \item{city_name}{: the English-language name of the city. Requires a city database.}
+#'  \item{city_geoname_id}{: a unique ID representing a city. Requires a city database. }
 #'  \item{timezone}{: the tzdata-compatible time zone. Requires a city database.}
 #'  \item{longitude}{: latitude of location. Requires a city database.}
 #'  \item{latitude}{: longitude of location. Requires a city database.}
@@ -25,18 +26,23 @@
 #'appropriate for different provided files; the connection type databases, for example, contain connection
 #'types and nothing else, while the city- and country-level files don't contain connection types at all.
 #'
+#'\code{rgeolocate} ships with a country-level database (accessing it can be seen in the examples). If
+#'you need city-level data, or other MaxMind databases, you'll need to download the \code{.mmdb} files
+#'yourself - for CRAN and/or copyright reasons, depending, we cannot include them.
+#'
 #'In the event that the file provided does not have the field you have requested (or the IP address does
-#'not have an entry for that field), the string "Unknown" (or NA for a numeric field such as latitude or
-#'longitude) will be returned instead. In the event that the IP
-#'address doesn't have an entry in the file at all, "Unknown"/NA will be returned for every field.
+#'not have an entry for that field), NA will be returned instead. In the event that the IP
+#'address doesn't have an entry in the file at all, NA will be returned for every field.
 #'
 #'@examples
+#'
+#'# An example, using the country-level dataset shipped with rgeolocate.
 #'file <- system.file("extdata","GeoLite2-Country.mmdb", package = "rgeolocate")
 #'results <- maxmind("196.200.60.51", file, "country_code")
 #'@export
 maxmind <- function(ips, file, fields = c("continent_name", "country_name", "country_code")){
   possible_fields <- c("continent_name", "country_name", "country_code", "region_name",
-                       "city_name", "timezone", "connection", "latitude", "longitude")
+                       "city_name", "timezone", "connection", "city_geoname_id", "latitude", "longitude")
   
   if(!all(fields %in% possible_fields)){
     warning("Some field names you have provided are not supported and no data will be retrieved for them. \nThe

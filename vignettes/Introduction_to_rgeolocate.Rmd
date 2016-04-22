@@ -30,16 +30,15 @@ results <- maxmind("196.200.60.51", file, c("continent_name", "country_code", "c
 results
 ```
 
-The `maxmind()` function is fully vectorised and will happily geolocate around a million IP addresses in just under 5 seconds.
+The `maxmind()` function is fully vectorised and will happily geolocate around a million IP addresses in just under 5 seconds. Only the country data, as said, is shipped with `rgeolocate`: if you'd like
+another database, you should download it yourself from the MaxMind website, and point the `file`
+argument of `maxmind()` to the downloaded database.
 
 ## Web APIs
 
-`rgeolocate` also contains bindings to various IP geolocation web APIs; this chunk is still in development and is a wee bit
-unstable. At the moment, there is support for:
+`rgeolocate` also contains bindings to various IP geolocation web APIs. At the moment, there is support for:
 
-* [db-ip.com](http://db-ip.com), through `db_ip()`;
-* [freegeoip.net](http://freegeoip.net), through `freegeoip()`;
-* [ip-api.com](http://ip-api.com), through `ip_api()`, and;
-* [telize.com](http://telize.com), through `telize()`
+* [db-ip.com](http://db-ip.com), through `db_ip()`, and;
+* [ip-api.com](http://ip-api.com), through `ip_api()`.
 
-These are all somewhat different, with different sources for their data and different *amounts* of data. While vectorised, they're going to be a lot slower than `maxmind()`, but are more viable for (say) obtaining information we don't currently extract from the MaxMind databases, or handling IP addresses the free MaxMind databases don't *cover* if you can't obtain the paid ones.
+These are somewhat different, with different sources for their data and different *amounts* of data. While vectorised, they're going to be a lot slower than `maxmind()`, but are more viable for (say) obtaining information we don't currently extract from the MaxMind databases, or handling IP addresses the free MaxMind databases don't *cover* if you can't obtain the paid ones.

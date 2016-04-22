@@ -3,8 +3,9 @@
 __Author(s:__ Oliver Keyes, Drew Schmidt<br/>
 __License:__ Apache 2.0
 __Status:__ Stable
+__Current release:__ 0.7.0 ("A La Cartographer")
 
-[![Travis-CI Build Status](https://travis-ci.org/Ironholds/rgeolocate.svg?branch=master)](https://travis-ci.org/Ironholds/rgeolocate)
+[![Travis-CI Build Status](https://travis-ci.org/Ironholds/rgeolocate.svg?branch=master)](https://travis-ci.org/Ironholds/rgeolocate) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/rgeolocate)
 
 IP geolocation is a powerful tool to have if you're dealing with web data, and there are a couple of R packages that
 provide access to specific services, such as the legacy rgeoip package
@@ -12,7 +13,7 @@ or Bob Rudis's [ipapi](https://github.com/hrbrmstr/ipapi). They're all spread ab
 styles and requirements.
 
 `rgeolocate` aims to be a single generalised package for geolocation; if you have a source you'd like to pull from, the
-goal is that `rgeolocate` will provide a binding to it. As of the 0.4.0 release, it contains:
+goal is that `rgeolocate` will provide a binding to it. As of the 0.7.0 release, it contains:
 
 1. A binding to the binary MaxMind databases;
 2. Wrappers around multiple online geolocation services ([see the vignette](https://github.com/Ironholds/rgeolocate/blob/master/vignettes/Introduction_to_rgeolocate.Rmd)
@@ -30,9 +31,9 @@ For the latest CRAN release:
 
 For the development version:
 
-    devtools::install_github("ironholds/rgeolocate", ref = "0.5.0")
+    devtools::install_github("ironholds/rgeolocate", ref = "0.7.0")
     
 ### Dependencies
-`rgeolocate` depends on [httr](http://cran.r-project.org/web/packages/httr/index.html) for the bindings
+`rgeolocate` depends on [httr](https://cran.r-project.org/package=httr) for the bindings
 to web databases; other than that, just base R! Thanks to the work of Drew Schmidt, `rgeolocate` includes the underlying
 MaxMind library and its dependencies.
