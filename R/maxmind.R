@@ -10,7 +10,7 @@
 #'@param fields the fields you want to retrieve - options are:
 #'\itemize{
 #'  \item{continent_name}{: the English-language name of the continent. Requires a country or city database.}
-#'  \item{country_name}{: the English-language name of the country Requires a country or city database.}
+#'  \item{country_name}{: the English-language name of the country. Requires a country or city database.}
 #'  \item{country_code}{: the ISO code of the country. Requires a country or city database.}
 #'  \item{region_name}{: the English-language name of the region. Requires a city database.}
 #'  \item{city_name}{: the English-language name of the city. Requires a city database.}
@@ -18,6 +18,10 @@
 #'  \item{timezone}{: the tzdata-compatible time zone. Requires a city database.}
 #'  \item{longitude}{: latitude of location. Requires a city database.}
 #'  \item{latitude}{: longitude of location. Requires a city database.}
+#'  \item{isp}{: name of ISP. Requires an ISP database.}
+#'  \item{organization}{: name of organization. Requires an ISP database.}
+#'  \item{asn}{: Autonomous System Number. Requires an ISP database.}
+#'  \item{aso}{: Autonomous System Organization. Requires an ISP database.}
 #'  \item{connection}{: the type of internet connection. Requires a connection type/netspeed database.}
 #'}
 #'@details
@@ -42,7 +46,8 @@
 #'@export
 maxmind <- function(ips, file, fields = c("continent_name", "country_name", "country_code")){
   possible_fields <- c("continent_name", "country_name", "country_code", "region_name",
-                       "city_name", "timezone", "connection", "city_geoname_id", "latitude", "longitude")
+                       "city_name", "timezone", "connection", "city_geoname_id", "latitude", "longitude",
+                       "isp", "organization", "asn", "aso")
   
   if(!all(fields %in% possible_fields)){
     warning("Some field names you have provided are not supported and no data will be retrieved for them. \nThe
@@ -50,5 +55,5 @@ maxmind <- function(ips, file, fields = c("continent_name", "country_name", "cou
     fields <- fields[fields %in% possible_fields]
   }
 
-  return(maxmind_(ips, file, fields))
+  return(maxmind_(ips, path.expand(file), fields))
 }

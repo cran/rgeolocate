@@ -3,7 +3,7 @@
 __Author(s:__ Oliver Keyes, Drew Schmidt<br/>
 __License:__ Apache 2.0
 __Status:__ Stable
-__Current release:__ 0.8.0 ("It's A Map")
+__Current release:__ 1.0.0 ("Not From Around Here")
 
 [![Travis-CI Build Status](https://travis-ci.org/Ironholds/rgeolocate.svg?branch=master)](https://travis-ci.org/Ironholds/rgeolocate) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/rgeolocate)
 
@@ -31,9 +31,9 @@ For the latest CRAN release:
 
 For the development version:
 
-    devtools::install_github("ironholds/rgeolocate", ref = "0.8.0")
+    devtools::install_github("ironholds/rgeolocate")
     
 ### Dependencies
 `rgeolocate` depends on [httr](https://cran.r-project.org/package=httr) for the bindings
 to web databases; other than that, just base R! Thanks to the work of Drew Schmidt, `rgeolocate` includes the underlying
-MaxMind library and its dependencies.
+binary libraries and their dependencies.

@@ -15,7 +15,7 @@ maxmind(ips, file, fields = c("continent_name", "country_name",
 \item{fields}{the fields you want to retrieve - options are:
 \itemize{
  \item{continent_name}{: the English-language name of the continent. Requires a country or city database.}
- \item{country_name}{: the English-language name of the country Requires a country or city database.}
+ \item{country_name}{: the English-language name of the country. Requires a country or city database.}
  \item{country_code}{: the ISO code of the country. Requires a country or city database.}
  \item{region_name}{: the English-language name of the region. Requires a city database.}
  \item{city_name}{: the English-language name of the city. Requires a city database.}
@@ -23,6 +23,10 @@ maxmind(ips, file, fields = c("continent_name", "country_name",
  \item{timezone}{: the tzdata-compatible time zone. Requires a city database.}
  \item{longitude}{: latitude of location. Requires a city database.}
  \item{latitude}{: longitude of location. Requires a city database.}
+ \item{isp}{: name of ISP. Requires an ISP database.}
+ \item{organization}{: name of organization. Requires an ISP database.}
+ \item{asn}{: Autonomous System Number. Requires an ISP database.}
+ \item{aso}{: Autonomous System Organization. Requires an ISP database.}
  \item{connection}{: the type of internet connection. Requires a connection type/netspeed database.}
 }}
 }
@@ -51,4 +55,3 @@ address doesn't have an entry in the file at all, NA will be returned for every 
 file <- system.file("extdata","GeoLite2-Country.mmdb", package = "rgeolocate")
 results <- maxmind("196.200.60.51", file, "country_code")
 }
-

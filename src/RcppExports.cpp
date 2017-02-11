@@ -6,35 +6,13 @@
 using namespace Rcpp;
 
 // ip_to_df
-DataFrame ip_to_df(std::list < std::vector < std::string > > x);
+DataFrame ip_to_df(List x);
 RcppExport SEXP rgeolocate_ip_to_df(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::list < std::vector < std::string > > >::type x(xSEXP);
+    Rcpp::traits::input_parameter< List >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(ip_to_df(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// freegeoip_to_df
-DataFrame freegeoip_to_df(std::list < std::vector < std::string > > x);
-RcppExport SEXP rgeolocate_freegeoip_to_df(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::list < std::vector < std::string > > >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(freegeoip_to_df(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// telize_to_df
-DataFrame telize_to_df(std::list < std::vector < std::string > > x);
-RcppExport SEXP rgeolocate_telize_to_df(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::list < std::vector < std::string > > >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(telize_to_df(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -48,6 +26,20 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const char* >::type file(fileSEXP);
     Rcpp::traits::input_parameter< std::vector < std::string > >::type fields(fieldsSEXP);
     rcpp_result_gen = Rcpp::wrap(maxmind_(ips, file, fields));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ip2location_
+List ip2location_(CharacterVector ips, CharacterVector fields, std::string file, bool use_memory);
+RcppExport SEXP rgeolocate_ip2location_(SEXP ipsSEXP, SEXP fieldsSEXP, SEXP fileSEXP, SEXP use_memorySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type ips(ipsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type fields(fieldsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type file(fileSEXP);
+    Rcpp::traits::input_parameter< bool >::type use_memory(use_memorySEXP);
+    rcpp_result_gen = Rcpp::wrap(ip2location_(ips, fields, file, use_memory));
     return rcpp_result_gen;
 END_RCPP
 }

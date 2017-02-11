@@ -40,9 +40,9 @@ static CharacterVector mmdb_getstring(MMDB_s *data, const CharacterVector ip_add
   return output;
 }
 
-static std::vector <double> mmdb_getdouble(MMDB_s *data, const CharacterVector ip_addresses, ...){
+static NumericVector mmdb_getdouble(MMDB_s *data, const CharacterVector ip_addresses, ...){
   int input_size = ip_addresses.size();
-  std::vector < double > output(input_size);
+  NumericVector output(input_size);
   
   int run_status;
   int lookup_error;
@@ -75,9 +75,9 @@ static std::vector <double> mmdb_getdouble(MMDB_s *data, const CharacterVector i
   return output;
 }
 
-static std::vector <int> mmdb_getint(MMDB_s *data, const CharacterVector ip_addresses, ...){
+static IntegerVector mmdb_getint(MMDB_s *data, const CharacterVector ip_addresses, ...){
   int input_size = ip_addresses.size();
-  std::vector < int > output(input_size);
+  IntegerVector output(input_size);
   
   int run_status;
   int lookup_error;
@@ -94,7 +94,7 @@ static std::vector <int> mmdb_getint(MMDB_s *data, const CharacterVector ip_addr
     
     result = MMDB_lookup_string(data, ip_addresses[i].operator char *(), &lookup_error, &gai_error);
     if((lookup_error != MMDB_SUCCESS) | (gai_error != MMDB_SUCCESS)){
-      output[i] = NA_REAL;
+      output[i] = NA_INTEGER;
     } else {
       va_start(path, ip_addresses);
       run_status = MMDB_vget_value(&result.entry, &entry_data, path);
@@ -139,15 +139,31 @@ CharacterVector maxmind_bindings::connection(MMDB_s *data, CharacterVector ip_ad
   return mmdb_getstring(data, ip_addresses, "connection_type", NULL);
 }
 
-std::vector < int > maxmind_bindings::city_geoname_id(MMDB_s *data, CharacterVector ip_addresses){
+CharacterVector maxmind_bindings::isp(MMDB_s *data, CharacterVector ip_addresses){
+  return mmdb_getstring(data, ip_addresses, "isp", NULL);
+}
+
+CharacterVector maxmind_bindings::organization(MMDB_s *data, CharacterVector ip_addresses){
+  return mmdb_getstring(data, ip_addresses, "organization", NULL);
+}
+
+IntegerVector maxmind_bindings::asn(MMDB_s *data, CharacterVector ip_addresses){
+  return mmdb_getint(data, ip_addresses, "autonomous_system_number", NULL);
+}
+
+CharacterVector maxmind_bindings::aso(MMDB_s *data, CharacterVector ip_addresses){
+  return mmdb_getstring(data, ip_addresses, "autonomous_system_organization", NULL);
+}
+
+IntegerVector maxmind_bindings::city_geoname_id(MMDB_s *data, CharacterVector ip_addresses){
   return mmdb_getint(data, ip_addresses, "city", "geoname_id", NULL);
 }
 
-std::vector < double > maxmind_bindings::latitude(MMDB_s *data, CharacterVector ip_addresses){
+NumericVector maxmind_bindings::latitude(MMDB_s *data, CharacterVector ip_addresses){
   return mmdb_getdouble(data, ip_addresses, "location", "latitude", NULL);
 }
 
-std::vector < double > maxmind_bindings::longitude(MMDB_s *data, CharacterVector ip_addresses){
+NumericVector maxmind_bindings::longitude(MMDB_s *data, CharacterVector ip_addresses){
   return mmdb_getdouble(data, ip_addresses, "location", "longitude", NULL);
 }
 
@@ -176,6 +192,14 @@ List maxmind_bindings::lookup(CharacterVector ip_addresses, MMDB_s *mmdb_set,
       output.push_back(longitude(mmdb_set, ip_addresses));
     } else if(fields[i] == "connection"){
       output.push_back(connection(mmdb_set, ip_addresses));
+    } else if(fields[i] == "organization"){
+      output.push_back(organization(mmdb_set, ip_addresses));
+    } else if(fields[i] == "isp"){
+      output.push_back(isp(mmdb_set, ip_addresses));
+    } else if(fields[i] == "asn"){
+      output.push_back(asn(mmdb_set, ip_addresses));
+    } else if(fields[i] == "aso"){
+      output.push_back(aso(mmdb_set, ip_addresses));
     } else if (fields[i] == "city_geoname_id") {
       output.push_back(city_geoname_id(mmdb_set, ip_addresses));
     }
