@@ -34,10 +34,9 @@
 #include "IP2Location.h"
 #include "IP2Loc_DBInterface.h"
 
-
-#ifdef WIN64
+#ifdef _WIN64
 #define IS_WINDOWS
-#elif defined WIN32
+#elif defined _WIN32
 #define IS_WINDOWS
 #endif
 
@@ -336,7 +335,7 @@ static ipv_t IP2Location_parse_addr(const char *addr)
     else if (IP2Location_ip_is_ipv6((char *)addr))
     {
         // Parse the v6 address
-        inet_pton(AF_INET6, addr, &parsed.ipv6);
+        inet_pton(AF_INET6, addr, (unsigned int*) &parsed.ipv6);
         if (parsed.ipv6.u.addr8[0] == 0 && parsed.ipv6.u.addr8[1] == 0 && parsed.ipv6.u.addr8[2] == 0 &&
                 parsed.ipv6.u.addr8[3] == 0 && parsed.ipv6.u.addr8[4] == 0 && parsed.ipv6.u.addr8[5] == 0 &&
                 parsed.ipv6.u.addr8[6] == 0 && parsed.ipv6.u.addr8[7] == 0 && parsed.ipv6.u.addr8[8] == 0 &&
@@ -685,8 +684,9 @@ static IP2LocationRecord *IP2Location_read_record(IP2Location *loc, uint32_t row
 
     if ((mode & ELEVATION) && (ELEVATION_POSITION[dbtype] != 0))
     {
-        record->elevation = atof(IP2Location_readStr(handle, IP2Location_read32(handle, rowaddr + 4 * (ELEVATION_POSITION[dbtype]-1))));
-    }
+      char *mem = IP2Location_readStr(handle, IP2Location_read32(handle, rowaddr + 4 * (ELEVATION_POSITION[dbtype]-1)));
+      record->elevation = atof(mem);
+      free(mem);    }
     else
     {
         record->elevation = 0.0;
@@ -890,14 +890,14 @@ static uint32_t IP2Location_ip2no(char* ipstring)
 static int IP2Location_ip_is_ipv4 (char* ipaddr)
 {
     struct sockaddr_in sa;
-    return inet_pton(AF_INET, ipaddr, &(sa.sin_addr));
+    return inet_pton(AF_INET, ipaddr, (unsigned int*) &(sa.sin_addr));
 }
 
 // Description: Check if this was an IPv6 address
 static int IP2Location_ip_is_ipv6 (char* ipaddr)
 {
     struct in6_addr_local ipv6;
-    return  inet_pton(AF_INET6, ipaddr, &ipv6);
+    return  inet_pton(AF_INET6, ipaddr, (unsigned int *) &ipv6);
 }
 
 // Description: Return API version numeric
