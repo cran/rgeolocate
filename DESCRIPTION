@@ -1,8 +1,8 @@
 Package: rgeolocate
 Type: Package
 Title: IP Address Geolocation
-Version: 1.3.1
-Date: 2020-05-16
+Version: 1.4.1
+Date: 2021-10-20
 Author: Os Keyes [aut, cre], Drew Schmidt [aut], David Robinson [ctb],
     Chris Davis [ctb], Bob Rudis [ctb], Maxmind, Inc. [cph], Pascal Gloor [cph], IP2Location.com [cph]
 Maintainer: Os Keyes <ironholds@gmail.com>
@@ -16,11 +16,11 @@ License: Apache License (== 2.0)
 BugReports: https://github.com/ironholds/rgeolocate/issues
 LinkingTo: Rcpp
 Imports: Rcpp, httr
-Suggests: testthat, knitr
+Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.2
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2020-05-16 23:12:28 UTC; ironholds
+Packaged: 2021-10-20 18:12:05 UTC; ironholds
 Repository: CRAN
-Date/Publication: 2020-05-17 07:30:12 UTC
+Date/Publication: 2021-10-20 18:30:02 UTC
