@@ -1,12 +1,12 @@
-137eee575058d13a92f166d3360f4772 *DESCRIPTION
+a33434d246f8f49489aa6b4eb53a30e0 *DESCRIPTION
 bc49502feabd48eaf68aa07522d0b0c6 *NAMESPACE
-93bec1839542d6340e10b74779395ed1 *NEWS
+74ca319eea1670afdce6e90629279876 *NEWS
 b12224ed40e9b774fb00fc361abd381c *R/RcppExports.R
 3f904baf087d30c962b9fb0bae706458 *R/db_ip.R
 8e39daca3ddf1aa1bae863c902186234 *R/ip2location.R
 62afabfff2a8b08384de6e2ffa9215d2 *R/ip_api.R
 bac51d1099b5d809de37443b8d93bd5c *R/ipinfo.R
-af9d390326be53f2eaf5208aa5db3a5d *R/maxmind.R
+cebb28e1c1f1afebb71535b023738279 *R/maxmind.R
 fc21f17d4d6e78e48b61a492b256c7e7 *R/rgeolocate.R
 dff4d5109f32fb159c73baaca35c60e7 *R/zzz.R
 7fdea8857a7a57e2aecc5f0d463ede46 *README.md
@@ -17,7 +17,7 @@ a63e4818630e8830c1a8a0bf4a7711b5 *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 4eaace277dae465c173c1360c4df0ff9 *inst/doc/Introduction_to_rgeolocate.R
 5c53addedfcd02d5aa89b3e53ffa1bc8 *inst/doc/Introduction_to_rgeolocate.Rmd
-50df9990735b99646459395516c1b19c *inst/doc/Introduction_to_rgeolocate.html
+975a59c3699f048f4b3e73f2ded1202c *inst/doc/Introduction_to_rgeolocate.html
 e2a872872887f52793b3b167ca0d0af7 *inst/extdata/GeoIP2-Anonymous-IP-Test.mmdb
 cf5e09c77d5062d7faf69a3c86fb2876 *inst/extdata/GeoIP2-City-Test.mmdb
 abef2643a804d58f477f0b4b89a9bdc0 *inst/extdata/GeoIP2-Precision-City-Test.mmdb
@@ -27,11 +27,11 @@ ff681daac344f46700f8628ed2a59754 *inst/extdata/ip2_sample.bin
 12d8c805838877480f334fed33b66283 *man/ip2location.Rd
 957d011377f6dfa6bd39b249380c7147 *man/ip_api.Rd
 1c2e93a464f9afb3e2d6dfad02dd4aae *man/ip_info.Rd
-0204686c374fd471121fc06a0181f379 *man/maxmind.Rd
+f4a38bfe8013f384efd0290147ebafbc *man/maxmind.Rd
 28c7e1d28857794e5339c5aecce3c7f6 *man/rgeolocate.Rd
 278774d2365ea78527f296fea1f22d46 *src/IP2Loc_DBInterface.c
 6a975d05f8b2fc52767ddee65a5eb7d9 *src/IP2Loc_DBInterface.h
-828ec156a9137eaa3da3230df6326936 *src/IP2Location.c
+cab654c9ba7142626f9c3d26fe93de20 *src/IP2Location.c
 9bc6848f2a7895a8000080a7871857f1 *src/IP2Location.h
 f639bc3f2e92e3d62869eb9b8d8e55e9 *src/Makevars.in
 dcfaecd54fcf41d47796ed8c59dba064 *src/Makevars.win
@@ -51,6 +51,6 @@ f5234ef22fa23df9c739e7dd823a9201 *src/maxmind.h
 f2ae94706b8f39c09dd0ac3d1a937d48 *tests/testthat/test_ip2location.R
 69e3ad0b81a956d9d266ba1ef7f679e3 *tests/testthat/test_ip_api.R
 0d365e3e7bb17e883c80be82dbded039 *tests/testthat/test_ip_info.R
-d30a47a27a3bde32a5f46bfb3ed2a632 *tests/testthat/test_maxmind.R
+5b419e067c253b2994a94f504197edef *tests/testthat/test_maxmind.R
 5c53addedfcd02d5aa89b3e53ffa1bc8 *vignettes/Introduction_to_rgeolocate.Rmd
 1f2e29ce172f238ff4bae5b46f79f591 *vignettes/Introduction_to_rgeolocate.md
